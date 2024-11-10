@@ -1,0 +1,169 @@
+/* Общие стили для всей страницы */
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: radial-gradient(circle at top left, #6d44b8, #d67db2);
+    color: #ffffff;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Полупрозрачный контейнер со стеклянным эффектом */
+.container {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(15px); /* Более сильное размытие для эффекта стекла */
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    text-align: center;
+    z-index: 1;
+}
+
+/* Заголовок */
+h1 {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+/* Текстовый абзац для описания */
+.description {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Поля ввода текста и вопроса */
+textarea, input[type="text"] {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2);
+    resize: none; /* Полностью отключаем возможность изменения размера */
+    overflow-y: auto; /* Скролл появляется только при необходимости */
+    outline: none;
+    box-sizing: border-box;
+    transition: background 0.3s ease;
+}
+
+/* Фиксированная высота для textarea */
+textarea {
+    height: 150px; /* Фиксированная высота */
+    max-height: 150px; /* Максимальная высота, чтобы избежать увеличения */
+    min-height: 150px; /* Минимальная высота, чтобы зафиксировать размер */
+    overflow-y: auto; /* Включаем вертикальный скролл, если текст превышает высоту */
+}
+
+/* Скрытие полосы прокрутки для Webkit-браузеров (например, Chrome, Safari) */
+textarea::-webkit-scrollbar {
+    width: 8px; /* Узкая полоса прокрутки */
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3); /* Прозрачный бегунок */
+    border-radius: 4px;
+}
+
+textarea::-webkit-scrollbar-track {
+    background: transparent; /* Прозрачный трек */
+}
+
+/* Эффект при фокусе на поле ввода */
+textarea:focus, input[type="text"]:focus {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Надписи */
+label {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 15px;
+    display: block;
+    text-align: left;
+}
+
+/* Кнопка */
+button {
+    background-color: #5a83d1;
+    color: #ffffff;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #4a6bbd;
+    transform: translateY(-2px);
+}
+
+/* Секция для ошибок */
+.error {
+    color: #ff6b6b;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Анимация загрузки */
+.loading {
+    display: none;
+    font-size: 18px;
+    color: #ffffff;
+    margin-top: 20px;
+}
+
+.loading.show {
+    display: block;
+}
+
+.loading .spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid #ffffff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Стили для текста и ответа */
+.answer-section {
+    margin-top: 20px;
+    text-align: left;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #ffffff;
+}
+
+.answer-section p {
+    margin: 10px 0;
+}

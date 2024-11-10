@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ответ на вопрос</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Ответ на ваш вопрос</h1>
+
+        <div class="answer-section">
+            <p><strong>Вопрос:</strong> {{ question }}</p>
+
+            <p><strong>Ответ:</strong> {{ answer }}</p>
+        </div>
+
+        <form action="/new_question" method="get">
+            <button type="submit">Задать новый вопрос</button>
+        </form>
+    </div>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>

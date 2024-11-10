@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма вопросов</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Получите ответ мгновенно</h1>
+        <p class="description">Задайте вопрос по тексту</p>
+
+        <form method="post" action="/ask" id="questionForm">
+            <label for="text">Текст</label>
+            <textarea id="text" name="text" oninput="autoResize(this)">{{ text | default("") }}</textarea>
+
+            <label for="question" style="margin-top: 20px;">Вопрос</label>
+            <input type="text" id="question" name="question">
+
+            <button type="submit">Получить ответ</button>
+        </form>
+
+        <!-- Анимация загрузки -->
+        <div class="loading" id="loading">
+            <div class="spinner"></div> Генерация ответа...
+        </div>
+
+        {% if errors %}
+            <div class="error">
+                <ul>
+                    {% for error in errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    </div>
+
+    <script src="/static/js/script.js"></script>
+    <script>
+        // Функция для автоматической подстройки высоты textarea под содержимое
+        function autoResize(textarea) {
+            textarea.style.height = 'auto'; // Сбрасываем высоту
+            textarea.style.height = textarea.scrollHeight + 'px'; // Устанавливаем высоту по содержимому
+        }
+    </script>
+</body>
+</html>
